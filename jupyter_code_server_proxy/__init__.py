@@ -1,5 +1,7 @@
 import os
+import logging
 
+log = logging.getLogger(__name__)
 
 def setup_code_server():
     def _get_code_server_cmd(port):
@@ -33,7 +35,7 @@ def setup_code_server():
         if ext_dir:
             args.append("--extensions-dir")
             args.append(ext_dir)
-
+        log.info(' '.join(args))
         return args
 
     return {
